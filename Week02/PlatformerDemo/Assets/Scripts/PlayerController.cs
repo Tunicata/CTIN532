@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D selfRd;
     private Animator selfAnim;
+    private float size = 1.0f;
     
     public CapsuleCollider2D selfColl;
     public LayerMask ground;
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
             selfRd.velocity = new Vector2(vectorBuffer * speed * Time.deltaTime, selfRd.velocity.y);
 
         if (faceDirection != 0.0f)
-            transform.localScale = new Vector3(faceDirection, 1.0f, 1.0f);
+            transform.localScale = new Vector3(faceDirection, 1.0f, 1.0f) * size;
 
         if ((jumpTrigger != 0.0f) && (!selfAnim.GetBool("jumpFlag")) && !selfAnim.GetBool("dropFlag"))
         {
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     void DeadHandler()
     {
         if (selfRd.position[1] < -6)
@@ -85,6 +87,13 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(0, 1, 0);
     }
 
+=======
+    public void SetSize(float newSize)
+    {
+        size *= newSize;
+        transform.localScale *= size;
+    }
+>>>>>>> db902f53f33d06e69a13485a5cfee18d9935b40b
 }
 
 
