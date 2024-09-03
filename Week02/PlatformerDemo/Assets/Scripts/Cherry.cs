@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class Cherry : MonoBehaviour
 {
-    public PlayerController Player;
+    private PlayerController _player;
     private SpriteRenderer _sRenderer;
     
     // Start is called before the first frame update
     void Start()
     {
         _sRenderer = transform.GetComponent<SpriteRenderer>();
+        _player = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float distance = (Player.transform.position - transform.position).magnitude;
+        float distance = (_player.transform.position - transform.position).magnitude;
         if (distance < 1.0f)
         {
-            Player.SetSize(1.2f);
-            _sRenderer.enabled = false;
-            enabled = false;
+            _player.SetSize(1.2f);
             Destroy(gameObject);
         }
     }
