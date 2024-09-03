@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 97018050}
   - component: {fileID: 97018049}
   - component: {fileID: 97018052}
+  - component: {fileID: 97018053}
   m_Layer: 0
   m_Name: cherry
   m_TagString: Untagged
@@ -223,18 +224,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!1 &113201065
-GameObject:
-=======
 --- !u!114 &97018052
 MonoBehaviour:
->>>>>>> db902f53f33d06e69a13485a5cfee18d9935b40b
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
+  m_GameObject: {fileID: 97018048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: tileset-sliced_48 (1)
+  m_EditorClassIdentifier: 
+--- !u!114 &97018053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97018048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31891bd9ae0bcba4bb1a27e40742d321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &113201065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 113201066}
@@ -313,15 +332,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
-  m_GameObject: {fileID: 97018048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31891bd9ae0bcba4bb1a27e40742d321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerTrans: {fileID: 1400239243}
->>>>>>> db902f53f33d06e69a13485a5cfee18d9935b40b
 --- !u!1 &235512168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,7 +1416,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-<<<<<<< HEAD
 --- !u!1 &1533545110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,8 +1500,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
->>>>>>> db902f53f33d06e69a13485a5cfee18d9935b40b
 --- !u!1 &1615952035
 GameObject:
   m_ObjectHideFlags: 0
