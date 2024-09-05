@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed;
 
     private float delay = 0.5f;
+    private bool hideroute = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,10 @@ public class PlayerController : MonoBehaviour
         }
         
         selfAnim.SetFloat("runFlag", Mathf.Abs(selfRd.velocity.x));
-        
+        if (transform.position.x < -10.6 &&  transform.position.y<-4.7)
+        {
+            hideroute = true;
+        }
     }
 
     void DropHandler()
@@ -74,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     void DeadHandler()
     {
-        if (selfRd.position[1] < -6)
+        if (!hideroute && transform.position.x > -10 && selfRd.position[1] < -4.5)
         {
             Invoke("Reset", delay);
             

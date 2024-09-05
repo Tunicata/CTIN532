@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EndpointController : MonoBehaviour
 {
-    private bool playerInsideTrigger = false;
-    private float delay = 0.5f;
+    public bool playerInsideTrigger = false;
+    private float delay = 0.2f;
     private PlayerController _player;
     public string NextSceneName;
 
@@ -17,13 +17,13 @@ public class EndpointController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        
-        if (Mathf.Abs(transform.position.x - _player.transform.position.x) < 1.0f) { 
-            LoadNextScene();
-        };
+
+        //if (Mathf.Abs(transform.position.x - _player.transform.position.x) < 1.0f) { 
+            //LoadNextScene();
+//};
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D (Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -34,10 +34,10 @@ public class EndpointController : MonoBehaviour
 
     private void LoadNextScene()
     {
-        //if (playerInsideTrigger)
-        //{
+        if (playerInsideTrigger)
+        {
             // Load the next scene by name
             SceneManager.LoadScene(NextSceneName);
-        //}
+        }
     }
 }
