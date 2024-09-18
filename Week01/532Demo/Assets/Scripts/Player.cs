@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private AudioSource PlayerAudio;
     private float speed = 3f;
 
     private RaycastHit hit;
@@ -26,12 +27,30 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        bool key_up = Input.GetKey(KeyCode.W);
+        bool key_down = Input.GetKey(KeyCode.S);
+        bool key_left = Input.GetKey(KeyCode.A);
+        bool key_right = Input.GetKey(KeyCode.D);
+        bool key_q = Input.GetKey(KeyCode.Q);
+        bool key_e = Input.GetKey(KeyCode.E);
+
+        float hSpeed = (key_right ? 1 : 0) - (key_left ? 1 : 0);
+        float vSpeed = (key_up ? 1 : 0) - (key_down ? 1 : 0);
+        float rSpeed = (key_q ? 1 : 0) - (key_e ? 1 : 0);
+
+        transform.position += (new Vector3(hSpeed, vSpeed) * 0.05f);
+        transform.localEulerAngles += new Vector3(0, 0, rSpeed);
+
+        if (hSpeed + vSpeed != 0f)
         {
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            SetEndPos(ray.origin, () => { });
+            if (!PlayerAudio.isPlaying)
+                PlayerAudio.Play();
         }
 
+        // Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // float lookAngle = Mathf.Atan2(mouseWorldPos.y - transform.position.y, mouseWorldPos.x - transform.position.x) * Mathf.Rad2Deg;
+        // transform.rotation = Quaternion.AngleAxis(lookAngle, Vector3.forward);
+        
         Move();
         Stop();
     }
@@ -41,7 +60,8 @@ public class Player : MonoBehaviour
         if (step != Vector3.zero)
         {
             // transform.rotation = Quaternion.Lerp(transform.rotation, _rotation, 0.2f);
-
+            if (!PlayerAudio.isPlaying)
+                PlayerAudio.Play();
             
             transform.Translate(step * speed * Time.deltaTime, Space.World);
         }
@@ -55,6 +75,7 @@ public class Player : MonoBehaviour
             step = Vector3.zero;
             _postMove();
             _postMove = () => { };
+            PlayerAudio.Stop();
         }
     }
 
@@ -63,7 +84,8 @@ public class Player : MonoBehaviour
         endPosition.x = inPos.x;
         endPosition.y = inPos.y;
         step = (endPosition - transform.position).normalized;
-        transform.localEulerAngles = new Vector3(0f, (step.x < 0) ? -180f : 0f, 0f);
+        // transform.localEulerAngles = new Vector3(0f, (step.x < 0) ? -180f : 0f, 0f);
+        // transform.localEulerAngles = new Vector3(0f, 0f, 0f);
 
         _postMove = postMove;
     }

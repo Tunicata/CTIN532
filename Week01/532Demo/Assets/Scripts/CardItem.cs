@@ -13,7 +13,7 @@ public class CardItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private int index;
     private bool releaseCard;
     private bool selected;
-    
+     
     public void Init(Dictionary<string, string> data)
     {
         this.releaseCard = false;

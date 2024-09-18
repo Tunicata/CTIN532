@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
     void DeadHandler()
     {
-        if (!hideroute && transform.position.x > -10 && selfRd.position[1] < -4.5)
+        if (!hideroute && transform.position.x > -10f && selfRd.position[1] < -4.5f)
         {
             Invoke("Reset", delay);
             
